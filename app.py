@@ -1,5 +1,6 @@
 import gradio as gr
 import edge_tts
+import webview
 import asyncio
 import os
 # https://speech.platform.bing.com/consumer/speech/synthesize/readaloud/voices/list?trustedclienttoken=6A5AA1D4EAFF4E9FB37E23D68491D6F4
@@ -105,4 +106,8 @@ with gr.Blocks(css="style.css", title="文本转语音") as demo:
             clear.click(fn=clearSpeech, outputs=[text, audio])
 
 if __name__ == "__main__":
-    demo.launch()
+    _, url, _ = demo.launch(inline=True, inbrowser=False, prevent_thread_lock=True, quiet=True)
+    demo: gr.Interface
+    webview.create_window('edge-tts webui', url)
+    webview.start()
+    demo.close()

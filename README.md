@@ -6,6 +6,7 @@
 
 ## 安装
 
+    pip install pywebview
     pip install edge-tts
     pip install gradio
     pip install asyncio
@@ -17,6 +18,7 @@
 ## 使用
 
 浏览器访问
+
 ```
 localhost:7860
 ```
